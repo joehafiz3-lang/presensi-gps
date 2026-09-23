@@ -42,9 +42,9 @@ $foto_out = Storage::url('uploads/absensi/'.$d->foto_out);
         @endif
     </td>
     <td>
-        @if ($d->jam_in >= '07.00')
+        @if ($d->jam_in >= '08.00')
         @php
-        $jamterlambat = selisih('07:00:00',$d->jam_in)
+        $jamterlambat = selisih('08:00:00',$d->jam_in)
         @endphp
         <span class="badge bg-danger">Terlambat {{ $jamterlambat }}</span>
         @else

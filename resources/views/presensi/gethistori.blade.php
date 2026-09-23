@@ -18,7 +18,7 @@
                     <b>{{ date("d-m-Y", strtotime($d->tgl_presensi)) }}</b><br>
                     {{-- <small class="text-muted">{{ $d->jam_in }} - {{ $d->jam_out ?? 'Belum Pulang' }}</small> --}}
                 </div>
-                <span class="badge {{ $d->jam_in > '07:00' ? "bg-success" : "bg-danger" }}">
+                <span class="badge {{ $d->jam_in > '08:00' ? "bg-success" : "bg-danger" }}">
                     {{ $d->jam_in }}
                 </span>
                 <span class="badge bg-primary">{{ $d->jam_out }}</span>

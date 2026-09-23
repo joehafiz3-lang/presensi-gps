@@ -1,9 +1,13 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CutiController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartemenController;
+use App\Http\Controllers\IzinabsenController;
+use App\Http\Controllers\IzinsakitController;
 use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\PengaturanController;
 use App\Http\Controllers\PresensiController;
 use Illuminate\Support\Facades\Route;
 
@@ -56,6 +60,14 @@ Route::middleware(['auth:karyawan'])->group(function () {
     Route::get('/presensi/izin', [PresensiController::class, 'izin']);
     Route::get('/presensi/buatizin', [PresensiController::class, 'buatizin']);
     Route::post('/presensi/storeizin', [PresensiController::class, 'storeizin']);
+
+    //izin Absen
+    Route::get('/izinabsen', [IzinabsenController::class, 'create']);
+    Route::post('/izinabsen/store', [IzinabsenController::class, 'store']);
+
+    //Izin Sakit
+    Route::get('/izinsakit', [IzinsakitController::class, 'create']);
+    Route::post('/izinsakit/store', [IzinsakitController::class, 'store']);
 });
 
 
@@ -86,4 +98,22 @@ Route::middleware(['auth:user'])->group(function () {
     Route::post('/tampilkanpeta', [PresensiController::class, 'tampilkanpeta']);
     Route::get('/presensi/laporan', [PresensiController::class, 'laporan']);
     Route::post('/presensi/cetaklaporan', [PresensiController::class, 'cetaklaporan']);
+    Route::get('/presensi/rekap', [PresensiController::class, 'rekap']);
+    Route::post('/presensi/cetakrekap', [PresensiController::class, 'cetakrekap']);
+    Route::get('/presensi/izinsakit', [PresensiController::class, 'izinsakit']);
+    Route::post('/presensi/approveizinsakit', [PresensiController::class, 'approveizinsakit']);
+    Route::get('/presensi/{id}/batalkanizinsakit', [PresensiController::class, 'batalkanizinsakit']);
+
+
+    //Pengaturan
+    Route::get('/pengaturan/lokasikantor', [PengaturanController::class, 'lokasikantor']);
+    Route::post('/pengaturan/updatelokasikantor', [PengaturanController::class, 'updatelokasikantor']);
+
+
+
+
+
+
+    // Cuti
+    Route::get('/cuti', [CutiController::class, 'index']);
 });
