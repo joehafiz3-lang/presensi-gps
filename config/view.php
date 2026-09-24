@@ -30,8 +30,6 @@ return [
 
     'compiled' => env(
         'VIEW_COMPILED_PATH',
-        realpath(storage_path('framework/views'))
-    ) ?: '/tmp/storage/framework/views',
-
-
+        storage_path('framework/views')
+    ),
 ];
